@@ -1,0 +1,20 @@
+{
+    "urls": [
+        "/",
+        "/index.html",
+        "/js/assert.js",
+        "/js/load_time_data.js",
+        "/js/strings.m.js",
+        "/js/surf-trusted.js",
+        "/js/surf-untrusted.min.js",
+        "/icons/icon-16.png",
+        "/icons/icon-32.png",
+        "/icons/icon-114.png",
+        "/icons/icon-128.png",
+        "/icons/icon-256.png",
+        "/favicon.png",
+        "/favicon.svg",
+        "/surf-iframe.html",
+        "/offline.html"
+    ]
+}

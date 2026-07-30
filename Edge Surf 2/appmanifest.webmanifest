@@ -1,0 +1,42 @@
+{
+    "name": "Edge Surf 2",
+    "short_name": "Edge Surf 2",
+    "description": "An offline game from Microsoft Edge",
+    "version": "3.0",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "orientation": "any",
+    "background_color": "#ffffff",
+    "theme_color": "#00c0de",
+    "icons": [
+        {
+            "src": "icons/icon-16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-114.png",
+            "sizes": "114x114",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "id": "com.microsoft.edgesurf2",
+    "dir": "auto",
+    "categories": ["games"],
+    "prefer_related_applications": false
+}
