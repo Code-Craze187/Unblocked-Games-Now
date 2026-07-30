@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'Cs Reg'; /* Name of the font */
+  src: url('Cust-Font/cs_regular.ttf') format('truetype'); /* Path to the .ttf file */
+}
+@font-face {
+  font-family: 'BFA'; /* Name of the font */
+  src: url('Cust-Font/batmanforeveralternate.ttf') format('truetype'); /* Path to the .ttf file */
+}
+@font-face {
+  font-family: 'Ubuntu'; /* Name of the font */
+  src: url('Cust-Font/Ubuntu-Bold.ttf') format('truetype'); /* Path to the .ttf file */
+}
+body {
+  font-family: 'BFA', sans-serif; /* Apply the custom font */
+}
+body{
+  
+    background-image: url('https://unblocked-games-now.neocities.org/New-Backround.jpeg');
+    background-size: 100vw 100vh;
+    background-repeat: repeat-y;
+  color: Black;
+  background-color: rgba(0,0,0,1)
+}
+body{
+background-color: rgba(0,0,0,1)
+}
+/* Add a black background color to the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+/* unvisited link */
+a:link {
+  color: hotpink;
+   background-color: rgba(0,0,0,1)
+}
+
+/* visited link */
+a:visited {
+  color: skyblue;
+  background-color: rgba(0,0,0,1)
+}
+
+/* mouse over link */
+a:hover {
+  color: white;
+  background-color: rgba(0,0,0,1)
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  background-color: rgba(0,0,0,1)
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    display: none; /* Initially hidden */
+    z-index: 999;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+    z-index: 1000;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
