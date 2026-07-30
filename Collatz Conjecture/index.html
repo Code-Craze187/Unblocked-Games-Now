@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Collatz Conjecture Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "d3": "https://esm.sh/d3@7"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</head>
+<body>
+    <div id="background-text">y = 3x + 1</div>
+    
+    <div id="ui-layer">
+        <div id="scanner-container">
+            <div class="scanner-label">Testing Number</div>
+            <div id="scanner-bubble">1</div>
+        </div>
+        <div id="stats">
+            <span>Nodes: <span id="node-count">0</span></span>
+            <span>Max: <span id="max-val">0</span></span>
+            <span>Min: <span id="min-val">0</span></span>
+            <span id="chain-stats">Chain: <span id="chain-progress">0</span> / <span id="chain-total">0</span></span>
+        </div>
+    </div>
+
+    <div id="controls">
+        <div class="control-group main-controls">
+            <button id="add-num-btn" class="control-btn">Add #</button>
+            <button id="grid-mode-btn" class="control-btn">Grid Mode</button>
+            <button id="pause-btn" class="control-btn">Pause</button>
+            <button id="reset-btn" class="control-btn">Reset</button>
+        </div>
+        
+        <div class="control-group grid-controls">
+            <button id="grid-pause-btn" class="control-btn">Pause</button>
+            <button id="grid-reset-btn" class="control-btn">Reset</button>
+            <button id="exit-grid-btn" class="control-btn">Exit Grid</button>
+        </div>
+
+        <div class="control-group main-controls">
+            <label class="toggle-switch">
+                <input type="checkbox" id="wall-toggle" checked>
+                <span class="slider"></span>
+                <span class="label-text">Walls</span>
+            </label>
+        </div>
+        <div class="control-group">
+            <label class="toggle-switch">
+                <input type="checkbox" id="shadow-toggle" checked>
+                <span class="slider"></span>
+                <span class="label-text">Shadows</span>
+            </label>
+        </div>
+        <div class="control-group">
+            <label class="toggle-switch">
+                <input type="checkbox" id="bigint-toggle">
+                <span class="slider"></span>
+                <span class="label-text">No Number Limit</span>
+            </label>
+        </div>
+        <div class="control-group">
+            <label class="toggle-switch">
+                <input type="checkbox" id="negatives-toggle">
+                <span class="slider"></span>
+                <span class="label-text">Test Negatives</span>
+            </label>
+        </div>
+        <div class="control-group speed-control">
+            <span class="label-text">Speed</span>
+            <input type="range" id="speed-slider" min="0.1" max="5" step="0.1" value="1">
+        </div>
+    </div>
+
+    <div id="credits">
+        Based on <a href="https://www.youtube.com/watch?v=n63FBYqj98E" target="_blank">carykh's video</a>
+    </div>
+
+    <div id="viz-container"></div>
+    
+    <div id="grid-view"></div>
+
+    <div id="overflow-overlay">
+        <div>INTEGER OVERFLOW</div>
+        <button id="overflow-reset-btn">CHANGE SETTINGS</button>
+    </div>
+
+    <!-- Config Modal -->
+    <div id="config-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Simulation Settings</h3>
+            <div class="formula-display">
+                <span>y = </span>
+                <input type="number" id="param-m" value="3" class="param-input">
+                <span>x + </span>
+                <input type="number" id="param-c" value="1" class="param-input">
+            </div>
+            <div class="modal-buttons">
+                <button id="modal-cancel" class="modal-btn cancel">Cancel</button>
+                <button id="modal-confirm" class="modal-btn confirm">Reset & Start</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid Config Modal -->
+    <div id="grid-config-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Grid Settings</h3>
+            <div class="grid-settings-container">
+                <div class="setting-group">
+                    <label>Multiplier (m)</label>
+                    <div class="range-inputs">
+                        <input type="number" id="grid-m-min" value="1" class="param-input">
+                        <span>to</span>
+                        <input type="number" id="grid-m-max" value="3" class="param-input">
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Addend (c)</label>
+                    <div class="range-inputs">
+                        <input type="number" id="grid-c-min" value="1" class="param-input">
+                        <span>to</span>
+                        <input type="number" id="grid-c-max" value="3" class="param-input">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="grid-modal-cancel" class="modal-btn cancel">Cancel</button>
+                <button id="grid-modal-confirm" class="modal-btn confirm">Reset & Update</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BigInt Confirmation Modal -->
+    <div id="bigint-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Enable No Number Limit?</h3>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; opacity: 0.8;">
+                This allows numbers to grow infinitely without overflow limits.
+                <br><br>
+                <strong>Warning:</strong> Extremely large numbers may cause performance lag.
+            </p>
+            <div class="modal-buttons">
+                <button id="bigint-cancel" class="modal-btn cancel">Cancel</button>
+                <button id="bigint-confirm" class="modal-btn confirm">Enable</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manual Add Number Modal -->
+    <div id="add-num-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Add Number</h3>
+            <div style="margin-bottom: 20px;">
+                <input type="text" inputmode="numeric" id="manual-num-input" class="param-input" style="width: 200px; padding: 10px;" placeholder="Enter number">
+            </div>
+            <div class="modal-buttons">
+                <button id="add-num-cancel" class="modal-btn cancel">Cancel</button>
+                <button id="add-num-confirm" class="modal-btn confirm">Add</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
