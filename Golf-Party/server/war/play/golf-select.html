@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body onload="load()">
+	<div id="golf-select" data-role="page">
+
+		<script src="golf-select.js"></script>
+
+		<!-- header -->
+		<div data-role="header">
+		<a href="#" data-icon="back" data-rel="back">戻る</a>
+			<h1>ゴルフ場選択</h1>
+		</div>
+
+		<!-- content -->
+		<div data-role="content">
+			<div data-role="fieldcontain">
+				<label for="search">ゴルフ場検索(TODO)</label>
+				<input type="search" name="password" id="search" value="" />
+			</div>
+			<ul data-role="listview" data-inset="true"  id="golf-list">
+			</ul>
+		</div>
+
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed" data-id="persistent" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn-active" data-icon="home" data-iconpos="top">ホーム</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
