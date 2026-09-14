@@ -6,8 +6,8 @@
     <title>Unblocked Games Now</title>
     <link href="/indexstyle.css" rel="stylesheet" type="text/css" media="all">
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa0gtsmtILf9rSC3/a0gt/2tILf9rSC3/a0gt/2tILf9rSC3/a0gt/2tILf9rSC3/a0gt/2tILbIAAAAAa0gtsmtILf+KXj3/il49/4pePf+KXj3/il49/4pePf+KXj3/il49/4pePf+KXj3/il49/4pePf9rSC3/a0gtsmtILf+KXj3/il49/4pePf+KXj3/il49/4pePf+KXj3/il49/4pePf+KXj3/il49/4pePf+KXj3/il49/2tILf9rSC3/Hx8f/x8fH/8fHx//il49/4pePf+KXj3/il49/4pePf+KXj3/il49/4pePf8fHx//Hx8f/x8fH/9rSC3/a0gt/x8fH/8fHx//Hx8f/x8fH/+KXj3/il49/4pePf+KXj3/il49/4pePf8fHx//Hx8f/x8fH/8fHx//a0gt/2tILf8mJib/JiYm/yYmJv8mJib/Hx8f/x8fH/8fHx//Hx8f/x8fH/8fHx//JiYm/yYmJv8mJib/JiYm/2tILf9rSC3/JiYm/yYmJv|a0gt/yYmJv8mJib/JiYm/yYmJv8mJib/x4hY/8eIWP8mJib/JiYm/yYmJv8mJib/JiYm/yYmJv9rSC3/a0gt/yYmJv8mJib/JiYm/8eIWP8mJib/JiYm/yYmJv8mJib/JiYm/yYmJv|eIWP/JiYm/yYmJv8mJib/a0gt/2tILf8rKyv/JiYm/8eIWP/HiFj/x4hY/yYmJv8mJib/JiYm/yYmJv/HiFj/JiYm/8eIWP8mJib/Kysr/2tILf9rSC3/MDAw/ysrK/8mJib/x4hY/yYmJv8mJib/JiYm/yYmJv8mJib/JiYm/8eIWP8mJib/Kysr/zAwMP9rSC3/a0gt/zg4OP8wMDD/Kysr/ysrK/8rKyv/x4hY/ysrK/8rKyv/x4hY/ysrK/8rKyv/Kysr/zAwMP84ODj/a0gt/2tILf+KXj3/ODg4/zAwMP8wMDD/MDAw/zAwMP8wMDD/MDAw/zAwMP8wMDD/MDAw/zAwMP84ODj/il49/2tILf9rSC3/lGRA/4pePf84ODj/ODg4/zg4OP84ODj/lGRA/5RkQP84ODj/ODg4/zg4OP84ODj/il49/5RkQP9rSC3/a0gt/5RkQP+UZED/il49/8eIWP/HiFj/lGRA/5RkQP+UZED/lGRA/8eIWP/HiFj/il49/5RkQP+UZED/a0gt/2tILbJrSC3/lGRA/5RkQP+UZED/lGRA/5RkQP+UZED/lGRA/5RkQP+UZED/lGRA/5RkQP+UZED/a0gt/2tILbIAAAAAa0gtsmtILf9rSC3/a0gt/2tILf9rSC3/a0gt/2tILf9rSC3/a0gt/2tILf9rSC3/a0gt/2tILbIAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAA==" rel="icon" type="image/x-icon">
-    <style>
-      /* Blue-Themed Game Search Bar Styling */
+ <style>
+      /* Solid Blue Search Bar Styling */
       .search-container {
         margin: 25px 0;
       }
@@ -17,39 +17,58 @@
         max-width: 450px;
         padding: 14px 22px;
         font-size: 16px;
-        color: #0b2545;
-        /* Deep blue text color */
-        background-color: #f4f9ff;
-        /* Very soft blue background */
-        border: 2px solid #3a86ff;
-        /* Vibrant blue border */
-        border-radius: 30px;
-        /* Modern rounded capsule style */
+        color: #ffffff; /* White text */
+        background-color: #3a86ff; /* Solid blue fill */
+        border: 2px solid #3a86ff; /* Matching blue border */
+        border-radius: 30px; /* Rounded modern capsule */
         box-sizing: border-box;
         outline: none;
-        box-shadow: 0 4px 6px rgba(58, 134, 255, 0.1);
-        /* Subtle blue drop shadow */
+        box-shadow: 0 4px 6px rgba(58, 134, 255, 0.2);
         transition: all 0.3s ease;
       }
 
-      /* Interactive hover and focus states */
+      /* Hover state */
       .game-search-input:hover {
-        border-color: #0056b3;
-        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.15);
+        background-color: #2575fc; /* Slightly brighter blue */
+        border-color: #2575fc;
       }
 
+      /* Focus state (when typing inside it) */
       .game-search-input:focus {
+        background-color: #0056b3; /* Deep blue background */
         border-color: #0056b3;
-        background-color: #ffffff;
-        /* Turns white when active */
-        box-shadow: 0 0 12px rgba(58, 134, 255, 0.4);
-        /* Stronger glow effect */
+        box-shadow: 0 0 12px rgba(0, 86, 179, 0.5);
       }
 
-      /* Placeholder styling */
+      /* Placeholder text color styling (White/Semi-transparent) */
       .game-search-input::placeholder {
-        color: #8da9c4;
-        /* Muted blue-grey placeholder text */
+        color: rgba(255, 255, 255, 0.75); /* Light white placeholder text */
+      }
+
+      /* Blue Styling for the Cookie Popup close button */
+      .popup .close-button {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background-color: #3a86ff;
+        color: #ffffff !important;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        box-shadow: 0 2px 5px rgba(58, 134, 255, 0.3);
+      }
+
+      .popup .close-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
       }
 
       .hidden {
